@@ -1,3 +1,3 @@
-   // head = atBegin(head, 20);
-    // printf("after insertion\n");
+    // printf("deleting first node in LinkedList\n");
+    // head = atBegin(head);
     // traversal(head);
