@@ -51,6 +51,15 @@ struct Node *atEnd (struct Node *head, int data){
     p->next = new;
     new->next = NULL;
 }
+struct Node *afterNode(struct Node *prevNode, int data){
+    struct Node *new = (struct Node * )malloc(sizeof(struct Node));
+    new->data = data;
+
+    new->next = prevNode->next;
+    prevNode->next = new;
+    return new;
+} 
+
 int main(){
     struct Node * head;
     struct Node * second;
@@ -72,7 +81,7 @@ int main(){
     
     traversal(head);
     head = atBegin(head, 20);
-    printf("after insertion\n");
+    printf("after insertion at begining\n");
     traversal(head);
     struct Node *temp = head; // to start traversal from begining
     head = inBetween(head,35,2);
@@ -80,6 +89,9 @@ int main(){
     traversal(temp);
     head = atEnd(head, 80);
     printf("after insertion at end\n");
-    traversal(temp);    
+    traversal(temp);  
+    printf("insert after third node\n");
+    head = afterNode(third, 67);
+    traversal(temp);  
     return 0;
 }
